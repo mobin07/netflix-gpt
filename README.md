@@ -2,7 +2,25 @@
 
 Create React App
 Configure Tailwind 
+Header 
+Routing of App
+Login Form 
+Sign up form 
+Form Validation
+useRef hook
+Firebase setup
+Deploying our app to production
+Create SignUp User Account
+Implement SignIn Api
+Created Redux Store with userSlice
+Implemented SignOut
+Update Profile
+Fetch from TMDB movies
 
+
+//firebase links
+<!-- https://firebase.google.com/docs/auth/web/manage-users -->
+<!-- https://console.firebase.google.com/project/netflix-gpt-1b3b5/authentication/users -->
 
 #Features:
 Login/ Signup 
