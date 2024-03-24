@@ -1,3 +1,5 @@
+/** @format */
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
@@ -12,7 +14,7 @@ const firebaseConfig = {
   projectId: "netflix-gpt-1b3b5",
   storageBucket: "netflix-gpt-1b3b5.appspot.com",
   messagingSenderId: "397878504321",
-  appId: "1:397878504321:web:1d4545ff5672528f5d1680"
+  appId: "1:397878504321:web:1d4545ff5672528f5d1680",
 };
 
 // Initialize Firebase
