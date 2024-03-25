@@ -7,14 +7,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { addUser, removeUser } from "../utils/userSlice";
-import { LOGO } from "../utils/constants";
+import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants";
+import { toogleGPTSearchView } from "../utils/gptSlice";
+import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
+  const showGPTSearch = useSelector((store) => store.gpt.showGPTSearch);
 
-  console.log("user in header", user);
+  // console.log("user in header", user);
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -26,6 +29,15 @@ const Header = () => {
         // An error happened.
         navigate("/error");
       });
+  };
+
+  const handleGPTSearch = () => {
+    dispatch(toogleGPTSearchView());
+  };
+
+  const handelLangChange = (e) => {
+    console.log(e.target.value);
+    dispatch(changeLanguage(e.target.value));
   };
 
   useEffect(() => {
@@ -63,11 +75,30 @@ const Header = () => {
       <img className="w-44" src={LOGO} alt="netflix logo" />
       {user && (
         <div className="flex p-2 gap-2">
-          {/* <img className='w-12 h-12 ' src="https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp"/> */}
+          {showGPTSearch && (
+            <select
+              className="bg-gray-900 text-white m-2"
+              onChange={handelLangChange}
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => {
+                return (
+                  <option key={lang.identifier} value={lang.identifier}>
+                    {lang.name}
+                  </option>
+                );
+              })}
+            </select>
+          )}
+          <button
+            className="py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg"
+            onClick={handleGPTSearch}
+          >
+            {showGPTSearch ? "Homepage" : " GPT Search"}
+          </button>
           <img className="w-12 h-12 " src={user.photoURL} />
 
           <button className="font-bold text-white" onClick={handleSignOut}>
-            Sign Out
+            (Sign Out)
           </button>
         </div>
       )}

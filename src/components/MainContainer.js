@@ -12,7 +12,7 @@ const MainContainer = () => {
   // giving error in movies[0]. so we have return null
   // once we get the data from the api we will render the ui
   const mainMovie = movies[0];
-  console.log(mainMovie);
+  // console.log(mainMovie);
 
   const { original_title, overview, id } = mainMovie;
 
