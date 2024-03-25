@@ -31,6 +31,7 @@ Fetch Data for trailer video
 Update store with Trailer video data
 Embeded the youtube video and make it autoplay and mute
 add tailwind classes to make main container awesome
+Build Secondary Component
 
 //firebase links
 
