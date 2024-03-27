@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import { API_OPTIONS } from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addPopularMovies,
   addTopRatedMovies,
@@ -12,6 +12,10 @@ import {
 const usePopularMovies = () => {
   // Fetch data from TMDB API and update store we can create custom hook for that
   const dispatch = useDispatch();
+  const { popularMovies, upcomingMovies, topRatedMovies } = useSelector(
+    (store) => store.movies
+  );
+
   const getPopularMovies = async () => {
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
@@ -43,9 +47,9 @@ const usePopularMovies = () => {
   };
 
   useEffect(() => {
-    getPopularMovies();
-    getTopRatedMovies();
-    getUpcomingMovies();
+    !popularMovies && getPopularMovies();
+    !topRatedMovies && getTopRatedMovies();
+    !upcomingMovies && getUpcomingMovies();
   }, []);
 };
 

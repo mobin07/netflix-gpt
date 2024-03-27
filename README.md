@@ -47,6 +47,14 @@ Integrate GPT API
 <!-- https://firebase.google.com/docs/auth/web/manage-users -->
 <!-- https://console.firebase.google.com/project/netflix-gpt-1b3b5/authentication/users -->
 
+tmdb doc
+
+<!-- https://developer.themoviedb.org/reference/movie-lists -->
+<!-- https://www.themoviedb.org/settings/api -->
+
+openAI api
+go to platform.openai.com
+
 #Features:
 Login/ Signup
 Login/ Signup Page
